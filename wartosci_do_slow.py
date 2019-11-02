@@ -17,7 +17,7 @@ def number_to_letter(number):
 
     num_in_words=[]
     liczba=str(number)
-    if liczba[-3]='.':
+    if liczba[-3]=='.':
         num_in_words.insert(0, 'groszy')
         if liczba[-2]=='0':
             num_in_words.insert(0, jednosci[liczba[-1]])
