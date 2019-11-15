@@ -59,9 +59,9 @@ def number_to_letter(number):
     # tysiące
     if len(liczba)>=8:
         if liczba[-8]=='1':
-            num_in_words.insert(0, nastki[liczba[-7]]+' tysięcy')
+            num_in_words.insert(0, nastki[liczba[-7]]+'tysięcy')
         else:
-            num_in_words.insert(0, jednosci[liczba[-7]]+' tysięcy')
+            num_in_words.insert(0, jednosci[liczba[-7]]+'tysięcy')
             num_in_words.insert(0, dziesiatki[liczba[-8]])
     elif len(liczba)>=7:
         num_in_words.insert(0, tysiace[liczba[-7]])
@@ -72,7 +72,7 @@ def number_to_letter(number):
     # miliony
     if len(liczba)>=11:
         if liczba[-11] == '1':
-            num_in_words.insert(0, nastki[liczba[-10]] + ' milionów')
+            num_in_words.insert(0, nastki[liczba[-10]] + 'milionów')
         else:
             num_in_words.insert(0, milion[liczba[-10]])
             num_in_words.insert(0, dziesiatki[liczba[-11]])
