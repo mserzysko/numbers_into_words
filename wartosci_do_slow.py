@@ -5,13 +5,13 @@ def number_to_letter(number):
                 '9': 'dziewięć'}
     nastki = {'0': 'dziesięć', '1': 'jedenaście', '2': 'dwanaście', '3': 'trzynaście', '4': 'czternaście', '5': 'piętnaście',
               '6': 'szesnaście', '7': 'siedemnaście', '8': 'osiemnaście', '9': 'dziewiętnaście'}
-    dziesiatki = {'2': 'dwadzieścia', '3': 'trzydzieści', '4': 'czterdzieści', '5': 'pięćdziesiąt', '6': 'sześćdziesiąt',
+    dziesiatki = {'0':'', '2': 'dwadzieścia', '3': 'trzydzieści', '4': 'czterdzieści', '5': 'pięćdziesiąt', '6': 'sześćdziesiąt',
                   '7': 'siedemdziesiąt', '8': 'osiemdziesiąt', '9': 'dziewięćdziesiąt'}
-    setki = {'1': 'sto', '2': 'dwieście', '3': 'trzysta', '4': 'czterysta', '5': 'pięćset', '6': 'sześćset', '7': 'siedemset',
+    setki = {'0':'', '1': 'sto', '2': 'dwieście', '3': 'trzysta', '4': 'czterysta', '5': 'pięćset', '6': 'sześćset', '7': 'siedemset',
              '8': 'osiemset', '9': 'dziewięćset'}
-    tysiace = {'1': 'tysiąć', '2': 'dwa tysiące', '3': 'trzy tysiące', '4': 'cztery tysiące', '5': 'pięć tysięcy',
+    tysiace = {'0':'', '1': 'tysiąć', '2': 'dwa tysiące', '3': 'trzy tysiące', '4': 'cztery tysiące', '5': 'pięć tysięcy',
                '6': 'sześć tysięcy', '7': 'siedem tysięcy', '8': 'osiem tysięcy', '9': 'dziewięć tysięcy'}
-    milion = {'1': 'jeden milion', '2': 'dwa miliony', '3': 'trzy miliony', '4': 'cztery miliony', '5': 'pięć milionów',
+    milion = {'0':'', '1': 'jeden milion', '2': 'dwa miliony', '3': 'trzy miliony', '4': 'cztery miliony', '5': 'pięć milionów',
               '6': 'sześć milionów', '7': 'siedem milionów', '8': 'osiem milionów', '9': 'dziewięć milionów'}
 
 
@@ -84,12 +84,17 @@ def number_to_letter(number):
         num_in_words.insert(0, setki[liczba[-12]])
 
     for i in num_in_words:
-        out_put+=i+' '
+        if i!='':
+            out_put+=i+' '
+        else:
+            continue
+
+    print(num_in_words)
 
     return print(out_put)
 
 # test
-number_to_letter(4578912.12)
+number_to_letter(110110011)
 
 
 
