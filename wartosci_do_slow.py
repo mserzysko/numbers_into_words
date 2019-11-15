@@ -84,7 +84,12 @@ def number_to_letter(number):
         num_in_words.insert(0, setki[liczba[-12]])
 
     for i in num_in_words:
-        out_put+=i+' '
+        if i!='':
+            out_put+=i+' '
+        else:
+            continue
+
+    print(num_in_words)
 
     return print(out_put)
 
