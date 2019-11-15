@@ -17,6 +17,7 @@ def number_to_letter(number):
 
     num_in_words=[]
     liczba=str(number)
+    out_put=''
 
     # grosze
     if len(liczba)>=3:
@@ -73,7 +74,7 @@ def number_to_letter(number):
         if liczba[-11] == '1':
             num_in_words.insert(0, nastki[liczba[-10]] + ' milionów')
         else:
-            num_in_words.insert(0, jednosci[liczba[-10]] + ' milionów')
+            num_in_words.insert(0, milion[liczba[-10]])
             num_in_words.insert(0, dziesiatki[liczba[-11]])
     else:
         if len(liczba)>=10:
@@ -82,10 +83,13 @@ def number_to_letter(number):
     if len(liczba)>=12:
         num_in_words.insert(0, setki[liczba[-12]])
 
+    for i in num_in_words:
+        out_put+=i+' '
 
-    return print(num_in_words)
+    return print(out_put)
 
-number_to_letter(111111111111111.11)
+# test
+number_to_letter(4578912.12)
 
 
 
