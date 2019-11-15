@@ -18,7 +18,8 @@ def number_to_letter(number):
     num_in_words=[]
     liczba=str(number)
 
-    #trzeba podowdawac sprawdzenie jaka jest dlugosc bo inaczej nie wypuwa tego co trzeba
+    # grosze
+    if len(liczba)>=3:
         if liczba[-3]=='.':
             num_in_words.insert(0, 'groszy')
             if liczba[-2]=='0':
@@ -30,49 +31,56 @@ def number_to_letter(number):
             else:
                 num_in_words.insert(0, jednosci[liczba[-1]])
                 num_in_words.insert(0, dziesiatki[liczba[-2]])
-
         else:
             liczba+='.00'
+            num_in_words.insert(0, 'zero groszy')
+    else:
+        liczba += '.00'
+        num_in_words.insert(0, 'zero groszy')
+
 
     num_in_words.insert(0, 'złotych')
 
-        if liczba[-5]:
-            if liczba[-5]=='1':
-                num_in_words.insert(0, nastki[liczba[-4]])
-            else:
-                num_in_words.insert(0, jednosci[liczba[-4]])
-                num_in_words.insert(0, dziesiatki[liczba[-5]])
+    # jedności i dziesiątki
+    if len(liczba)>=5:
+        if liczba[-5]=='1':
+            num_in_words.insert(0, nastki[liczba[-4]])
         else:
             num_in_words.insert(0, jednosci[liczba[-4]])
+            num_in_words.insert(0, dziesiatki[liczba[-5]])
+    else:
+        num_in_words.insert(0, jednosci[liczba[-4]])
 
-        if liczba[-6]:
-            num_in_words.insert(0, setki[liczba[-6]])
+    # setki
+    if len(liczba)>=6:
+        num_in_words.insert(0, setki[liczba[-6]])
 
-        if liczba[-8]:
-            if liczba[-8]=='1':
-                num_in_words.insert(0, nastki[liczba[-7]]+' tysięcy')
-            else:
-                num_in_words.insert(0, jednosci[liczba[-7]]+' tysięcy')
-                num_in_words.insert(0, dziesiatki[liczba[-8]])
+    # tysiące
+    if len(liczba)>=8:
+        if liczba[-8]=='1':
+            num_in_words.insert(0, nastki[liczba[-7]]+' tysięcy')
         else:
-            if liczba[-7]:
-                num_in_words.insert(0, tysiace[liczba[-7]])
+            num_in_words.insert(0, jednosci[liczba[-7]]+' tysięcy')
+            num_in_words.insert(0, dziesiatki[liczba[-8]])
+    elif len(liczba)>=7:
+        num_in_words.insert(0, tysiace[liczba[-7]])
 
-        if liczba[-9]:
-            num_in_words.insert(0, setki[liczba[-9]])
+    if len(liczba)>=9:
+        num_in_words.insert(0, setki[liczba[-9]])
 
-        if liczba[-11]:
-            if liczba[-11] == '1':
-                num_in_words.insert(0, nastki[liczba[-10]] + ' milionów')
-            else:
-                num_in_words.insert(0, jednosci[liczba[-10]] + ' milionów')
-                num_in_words.insert(0, dziesiatki[liczba[-11]])
+    # miliony
+    if len(liczba)>=11:
+        if liczba[-11] == '1':
+            num_in_words.insert(0, nastki[liczba[-10]] + ' milionów')
         else:
-            if liczba[-10]:
-                num_in_words.insert(0, milion[liczba[-10]])
+            num_in_words.insert(0, jednosci[liczba[-10]] + ' milionów')
+            num_in_words.insert(0, dziesiatki[liczba[-11]])
+    else:
+        if len(liczba)>=10:
+            num_in_words.insert(0, milion[liczba[-10]])
 
-        if liczba[-12]:
-            num_in_words.insert(0, setki[liczba[-9]])
+    if len(liczba)>=12:
+        num_in_words.insert(0, setki[liczba[-12]])
 
 
     return print(num_in_words)
